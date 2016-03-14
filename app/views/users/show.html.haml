@@ -10,7 +10,8 @@
 .post
   %h3 
     Bio
-    =link_to 'Edit', edit_user_profile_path(@user, @user.profile)
+    - if user_signed_in? && current_user
+      =link_to 'Edit', edit_user_profile_path(@user, @user.profile)
   %p 
     = @user.bio 
   %p
