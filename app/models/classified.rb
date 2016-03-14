@@ -14,12 +14,12 @@ class Classified < ActiveRecord::Base
 	belongs_to :user
 	has_many :taggings
 	has_many :tags, through: :taggings
-	validates :title, presence: true, length: {maximum: 20}
+	validates :title, presence: true, length: {maximum: 25}
 	validates :price, presence: true, numericality: {greater_than: 0.05}
 	validates :location, presence: true
 	validates :description, presence: true
 	validates :user_id, presence: true
-	#validates :file, presence: true
+	validates :file, presence: true
 
 	def initialize(params={}) 
 		@file = params.delete(:file)
