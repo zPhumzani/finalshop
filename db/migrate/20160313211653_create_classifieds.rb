@@ -10,7 +10,7 @@ class CreateClassifieds < ActiveRecord::Migration
       t.binary :file_contents
       t.references :category, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
-      t.string :slug, limit: 30
+      t.string :slug, limit: 150
 
       t.timestamps null: false
     end
