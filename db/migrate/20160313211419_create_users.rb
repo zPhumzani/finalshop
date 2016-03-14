@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.boolean :admin
-      t.string :slug, limit: 30
+      t.string :slug
 
       t.timestamps null: false
     end
