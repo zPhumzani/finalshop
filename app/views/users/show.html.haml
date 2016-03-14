@@ -1,0 +1,45 @@
+- page_header @user
+
+.vcard
+  %span.fn= @user
+  %a{ class: "email", href: "mailto:#{@user.email}"}
+    = @user.email
+
+-#= link_to 'Edit', edit_user_path(@user)
+        
+.post
+  %h3 
+    Bio
+    =link_to 'Edit', edit_user_profile_path(@user, @user.profile)
+  %p 
+    = @user.bio 
+  %p
+    %small 
+      Profile page has been viewed 1242,44 times 
+      %mark.text-danger Still working on this feature
+
+
+.classified
+  %h3 
+    %small= "#{@user} has #{@user.classifieds.size} classifieds"
+  %ul.list-unstyled
+    = render @user.classifieds
+
+
+.post
+  %h3 Favorite Pages
+  %p
+    %small
+      = "#{@user} has favorited 11 classifieds"
+      %mark.text-danger Still working on this feature
+  %ul.list-unstyled
+    %li= link_to 'Favorited 11 page', ''
+
+.social-media
+  %h3 Social Media
+  %ul.list-inline
+    %li= link_to fa_icon('facebook-official'), ''
+    %li= link_to fa_icon('twitter-square'), ''
+    %li= link_to fa_icon('github-square'), ''
+    %li= link_to fa_icon('google-plus-square'), ''
+    %li= link_to fa_icon('pinterest-square'), ''

@@ -1,0 +1,9 @@
+%li= link_to 'Main Page', classifieds_path
+%li= link_to 'Categories', categories_path
+%li= link_to 'Favorites', ''
+%li
+  %a{ href: '#', data: {toggle: 'modal', target: '#nav-modal'}}
+    %i.fa.fa-bars
+- if is_admin?
+  %li= link_to 'Admin Control', admin_root_path
+%li= link_to 'Help', help_path
