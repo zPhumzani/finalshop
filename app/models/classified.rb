@@ -1,4 +1,5 @@
 class Classified < ActiveRecord::Base
+	acts_as_votable
 	default_scope lambda {order("created_at DESC")}
 	extend FriendlyId
 	friendly_id :slug_candidates, use: :slugged

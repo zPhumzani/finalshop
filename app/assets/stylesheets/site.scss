@@ -57,6 +57,8 @@ padding-right: 0;
 	background: $inverse-background;
 	h1 {
 	  color: #fff;
+	  font-size: 2em;
+	  padding: 10px;
 	  font-family: Impact;
 	  text-shadow: 0px 6px 5px red;
 	}
@@ -237,6 +239,14 @@ margin-bottom: ($margin * 2);
 	  i.favorite {
 	    color: $red1;
 	  }
+	  a.favorite {
+	    color: red;
+	  }
+	}
+	.post-meta {
+	  i.favorite {
+	    color: $red1;
+	  }
 	}
 }
 
@@ -273,6 +283,12 @@ margin-bottom: ($margin * 2);
 	.modal a {
 	  font-size: ($font-size * 2);
 	}
+
+.navbar-default .navbar-brand {
+   font-family: $heading-copy;
+   font-weight: 200;
+   font-size: inherit;
+}
 }
 
 

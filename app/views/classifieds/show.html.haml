@@ -6,8 +6,11 @@
 .post-meta
   %p
     %small 
-      23
-      %i.fa.fa-heart.favorite
+      = @classified.get_upvotes.size
+      - if @classified.get_upvotes.size > 0
+        %i.fa.fa-heart.favorite
+      - else
+        %i.fa.fa-heart
       Last edited: 
       = distance_of_time_in_words(@classified.updated_at, Time.now)
   %p
@@ -27,7 +30,6 @@
     = link_to @classified.user, @classified.user
 .post
   %h3
-    %i.fa.fa-heart
     = link_to @classified.title, ''
   %p= @classified.description
 
@@ -40,6 +42,7 @@
   Interested? Contact
   = mail_to @classified.user.email
 
-= link_to 'Edit', edit_classified_path(@classified)
-\|
+- if user_signed_in? && (@classified.user == current_user)
+  = link_to 'Edit', edit_classified_path(@classified)
+  \|
 = link_to 'Back', classifieds_path

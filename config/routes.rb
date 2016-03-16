@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   resources :classifieds do 
     get 'image', on: :member
+    member do 
+      get "like", to: "classifieds#upvote"
+      get 'dislike', to: "classifieds#downvote"
+    end
   end
   resources :categories, only: [:show, :index]
 

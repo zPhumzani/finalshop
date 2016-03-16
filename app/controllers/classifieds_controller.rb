@@ -1,6 +1,6 @@
 class ClassifiedsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
-  before_action :set_classified, only: [:show, :edit, :update, :destroy]
+  before_action :set_classified, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /classifieds
   # GET /classifieds.json
@@ -84,6 +84,16 @@ class ClassifiedsController < ApplicationController
   def image 
     @image = Classified.friendly.find(params[:id])
     send_data @image.file_contents, filename: @image.filename, type: @image.content_type, :diposition => "inline"
+  end
+
+  def upvote
+    @classified.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @classified.downvote_by current_user
+    redirect_to :back
   end
 
   private

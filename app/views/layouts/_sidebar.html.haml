@@ -19,4 +19,6 @@
 
   .tags-cloud
     %h5 Tags Cloud
-    %mark.text-danger Still working on this features
+    %ul.breadcrumb
+      - Tag.order("RANDOM()").limit(10).each do |tag|
+        %li= link_to tag.name, tag_path(tag.name)

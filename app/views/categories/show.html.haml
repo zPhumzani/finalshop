@@ -1,6 +1,11 @@
 - page_header @category.name
 
 .post
+  
+  - if @category.classifieds.blank? 
+    %p There are no ads currently in the system.
+  - else
+    %p These are the current classified ads in our system
   - @category.classifieds.each do |classified|
     %h4= link_to classified.title, classified
     %p= number_to_currency(classified.price)
